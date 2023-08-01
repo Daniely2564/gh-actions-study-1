@@ -1,0 +1,12 @@
+name: Test pulling code from actions
+on: workflow_dispatch
+jobs:
+  can-do-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pulls Code Using action
+        uses: actions/checkout@v3
+      - name: Change directory to workspace
+        run: |
+          echo "$GITHUB_WORKSPACE"
+          cd $GITHUB_WORKSPACE | git status

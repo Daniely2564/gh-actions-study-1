@@ -10,3 +10,13 @@ jobs:
         run: |
           echo "$GITHUB_WORKSPACE"
           cd $GITHUB_WORKSPACE | git status
+      - name: Intentionally fail
+        run: |
+          wrong_var=release name
+  something:
+     runs-on: ubuntu-latest
+     if: always() && failure()
+     steps:
+       - name: Show Code
+         run: |
+           echo "Hello"
